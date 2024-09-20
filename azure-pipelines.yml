@@ -1,4 +1,12 @@
+trigger:
+- main
 pool: 
  vmImage: ubuntu-latest
 steps:
 - bash: echo hello world
+variables:
+ buildConfiguration: 'Release'
+
+ steps:
+ - script: dotnet build --configuration $(buildConfiguration)
+   displayName: 'dotnet build $(buildConfiguration)'
